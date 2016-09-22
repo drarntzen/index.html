@@ -1,0 +1,13 @@
+#Add user
+db.createUser({<user JSON here>, roles:"<user role(s) here"})
+
+#Create Collection
+db.createCollection(<collection name>)
+
+#Add items to collection
+db.<collection name>.insert(<item name>)
+db.<collection name>.update(<item name>)
+
+#Show entire contents of collection
+db.<collection name>.find() #.pretty() to make more readable
+db.<collection name>.find({<key>:"<value>"}) # can chain the searches with a comma
