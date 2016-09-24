@@ -11,3 +11,4 @@ db.<collection name>.update(<item name>)
 #Show entire contents of collection
 db.<collection name>.find() #.pretty() to make more readable
 db.<collection name>.find({<key>:"<value>"}) # can chain the searches with a comma
+db.<collection name>.find(<key searches>, {key:1 or 0}) # Show keys or not
