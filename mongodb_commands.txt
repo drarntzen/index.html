@@ -8,7 +8,25 @@ db.createCollection(<collection name>)
 db.<collection name>.insert(<item name>)
 db.<collection name>.update(<item name>)
 
+# To reference embedded data: "key.subkey"  e.g:
+db.<collection>.find({<key>},{"key.subkey":1}) # returns only the subkey for specified find key
+
 #Show entire contents of collection
 db.<collection name>.find() #.pretty() to make more readable
 db.<collection name>.find({<key>:"<value>"}) # can chain the searches with a comma
 db.<collection name>.find(<key searches>, {key:1 or 0}) # Show keys or not
+
+# the $set: is important otherwise it drops all other data when updating except what you specify!
+# Upsert at the end is if you are making a new record
+db.<collection>.update({<key to search on},{$set:{<key to update>}}, {upsert: true})
+date: new Date("Aug 20, 1981") # turns it into the ISO type that MongoDB uses
+
+#If using _id to for update purposes
+db.<collection>.update({_id: ObjectId("<id here")},{$set:{<stuff to update>}})
+db.<collection>.update({_id: ObjectId("<id here")},{$push:{<array to update>}})
+
+# Updating a record
+db.<collection>.update({<key>},{$unset: {<field to drop>: 1}})
+# Then do an update like normal (as above)
+
+db.<collection>.remove({<key>}, true) # drops the first instance of that key it finds
