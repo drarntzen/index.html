@@ -9,8 +9,6 @@
 # import required libraries
 import csv
 
-# intialise variables used
-lineNum = 0
 csvContents = []
 # First row is a header row!
 # Column date for the CSV:
@@ -20,21 +18,30 @@ csvContents = []
 # Column 4 (Index 3) = Transport company consignment reference
 # Column 5 (Index 4) = Quantity sent (Usually 1, but not always!)
 
-with open('couriers.csv', 'rt') as csvfile:
-        lineReader = csv.reader(csvfile, delimiter=",")
-        for row in lineReader:
-            lineNum += 1
-            if lineNum == 1.0:
-                print("Skipping the header row")
-                continue
-            dateSent = row[0]
-            salesReference = row[1]
-            transportCompany = row[2]
-            transportConsignment = row[3]
-            quantitySent = row[4]
-            oneResultRow = [dateSent, salesReference, transportCompany,
-                            transportConsignment, quantitySent]
-            csvContents.append(oneResultRow)
-            print(dateSent, ",", salesReference, ",", transportCompany, ",",
-                  transportConsignment, ",", quantitySent)
-        print("Iteration done.")
+
+def openCSV(csvFile):
+    """Function to open CSV file, Mark I."""
+    lineNum = 0
+    csvFile =  open('couriers.csv', 'rt')
+    lineReader = csv.reader(csvFile, delimiter=",")
+    for row in lineReader:
+        lineNum += 1
+        if lineNum == 1.0:
+            print("Skipping the header row")
+            continue
+        dateSent = row[0]
+        salesReference = row[1]
+        transportCompany = row[2]
+        transportConsignment = row[3]
+        quantitySent = row[4]
+        oneResultRow = [dateSent, salesReference, transportCompany,
+                        transportConsignment, quantitySent]
+        csvContents.append(oneResultRow)
+        print(dateSent, ",", salesReference, ",", transportCompany, ",",
+              transportConsignment, ",", quantitySent)
+    print("Iteration done.")
+
+if __name__ == "__main__":
+    dbFile = input("Enter database name: ")
+    openCSV(dbFile)
+    print("File Parsing complete.")
