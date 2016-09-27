@@ -7,5 +7,6 @@ To further this goal, I intend to make at least one commit a day in addition to 
 
 Current projects/meanderings/random stuff:
 - [Historical temperature range: Perth Airport, WA](../../../temp-perthairport) (I work in this area, so seemed as good a place as any to practice data wrangling).
+- Searchable Goods Outwards database, initially in CSV but eventually will be SQLite with any luck.
 
 [LinkedIn Profile, mostly as proof I'm (allegedly) an actual human](http://www.linkedin.com/in/damian-arntzen-320565122)
