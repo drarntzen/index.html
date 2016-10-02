@@ -1,2 +1,6 @@
 *.xlsx
 *.csv
+Python/sqlite3.def
+*.dll
+Python/sqlite3.exe
+*.sqlite
